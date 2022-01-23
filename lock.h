@@ -5,6 +5,6 @@ struct lock_t
 };
 
 //lock.c
-void initlock(struct lock_t *);
-void lock_acquire(struct lock_t *);
-void lock_release(struct lock_t *);
+void initLock(struct lock_t *);
+void lockAcquire(struct lock_t *);
+void lockRelease(struct lock_t *);

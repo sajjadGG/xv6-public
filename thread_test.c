@@ -20,7 +20,7 @@ void *thread(void *arg)
 
     for (i = 0; i < TARGET_COUNT_PER_THREAD; i++)
     {
-        lock_acquire(lt);
+        lockAcquire(lt);
 
         counter = g_counter;
         sleep(0);
@@ -28,7 +28,7 @@ void *thread(void *arg)
         sleep(0);
         g_counter = counter;
 
-        lock_release(lt);
+        lockRelease(lt);
     }
 
     exit();
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     int final_counter;
     int final_target = NUM_THREADS * TARGET_COUNT_PER_THREAD;
 
-    initlock(lt);
+    initLock(lt);
 
     // Initialize counter
     g_counter = 0;

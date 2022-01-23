@@ -8,7 +8,7 @@
 #include "proc.h"
 #include "lock.h"
 
-void initlock(struct lock_t *lk)
+void initLock(struct lock_t *lk)
 {
     lk->locked = 0;
 }
@@ -17,7 +17,7 @@ void initlock(struct lock_t *lk)
 // Loops (spins) until the lock is acquired.
 // Holding a lock for a long time may cause
 // other CPUs to waste time spinning to acquire it.
-void lock_acquire(struct lock_t *lk)
+void lockAcquire(struct lock_t *lk)
 {
     pushcli(); // disable interrupts to avoid deadlock.
 
@@ -29,7 +29,7 @@ void lock_acquire(struct lock_t *lk)
 }
 
 // Release the lock.
-void lock_release(struct lock_t *lk)
+void lockRelease(struct lock_t *lk)
 {
 
     __sync_synchronize();
