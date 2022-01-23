@@ -386,13 +386,14 @@ int join(void)
       if (p->parent != curproc) //set parent in clone
         continue;
       havekids = 1;
-      if (p->state == ZOMBIE && p->parent != curproc)
+      if (p->state == ZOMBIE)
       {
+        //&& p->parent != curproc
         // Found one.
         pid = p->pid;
-        kfree(p->kstack);
-        p->kstack = 0;
-        freevm(p->pgdir);
+        // kfree(p->kstack);
+        // p->kstack = 0;
+        // freevm(p->pgdir);
         p->pid = 0;
         p->parent = 0;
         p->name[0] = 0;
