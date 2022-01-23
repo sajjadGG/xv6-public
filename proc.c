@@ -263,7 +263,7 @@ int clone(void *stack, int size)
   uint stack_size = (uint)(down_start - top_start);
   np->tf->esp = (uint)(stack - stack_size);
   np->tf->ebp = (uint)(stack - 16);
-  memmove(stack - copysize, top_copy, copysize);
+  memmove(stack - stack_size, top_start, stack_size);
 
   acquire(&ptable.lock);
 
