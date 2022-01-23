@@ -90,16 +90,7 @@ int main(int argc, char **argv)
 
     for (i = 0; i < NUM_THREADS; i++)
     {
-        void *joinstack;
         join();
-        for (j = 0; j < NUM_THREADS; j++)
-        {
-            if (joinstack == stacks[i])
-            {
-                printf(1, "main: thread %d joined...\n", i);
-                break;
-            }
-        }
     }
 
     // Check the result
