@@ -38,11 +38,3 @@ void *memset(void *, int, uint);
 void *malloc(uint);
 void free(void *);
 int atoi(const char *);
-
-//lock.c
-void initlock(struct lock_t *);
-void lock_acquire(struct lock_t *);
-void lock_release(struct lock_t *);
-
-//thread.c
-void thread_create(void *(*)(void *), void *);
