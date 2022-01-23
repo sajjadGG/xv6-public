@@ -23,10 +23,10 @@ int getpid(void);
 char *sbrk(int);
 int sleep(int);
 int uptime(void);
-int clone(void *, int) //IMPLEMENTED
+int clone(void *, int); //IMPLEMENTED
 
-    // ulib.c
-    int stat(const char *, struct stat *);
+// ulib.c
+int stat(const char *, struct stat *);
 char *strcpy(char *, const char *);
 void *memmove(void *, const void *, int);
 char *strchr(const char *, char c);
