@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     for (i = 0; i < NUM_THREADS; i++)
     {
         thread_create(thread, args[i]);
-        printf(1, "main: created thread with pid %d\n", pid);
+        printf(1, "main: created thread with pid %d\n");
     }
 
     // Wait for all children
