@@ -94,3 +94,8 @@ int sys_clone(void)
     return -1;
   return clone(stack, size);
 }
+
+int sys_join(void)
+{
+  return join();
+}
