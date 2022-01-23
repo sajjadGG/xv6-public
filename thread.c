@@ -1,6 +1,7 @@
 #include "types.h"
 #include "stat.h"
 #include "user.h"
+#include "thread.h"
 
 /* Possible states of a thread: */
 #define FREE 0x0

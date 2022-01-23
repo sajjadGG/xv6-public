@@ -6,7 +6,6 @@
 
 #define NUM_THREADS 4
 #define TARGET_COUNT_PER_THREAD 500
-#define SEMAPHORE_NUM 0
 
 uint g_counter;
 struct lock_t *lt;
