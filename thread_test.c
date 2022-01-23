@@ -4,6 +4,7 @@
 #include "fs.h"
 #include "fcntl.h"
 #include "lock.h"
+#include "thread.h"
 
 #define NUM_THREADS 4
 #define TARGET_COUNT_PER_THREAD 500
