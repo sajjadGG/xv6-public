@@ -1,7 +1,6 @@
 #include "types.h"
 #include "stat.h"
 #include "user.h"
-#include "thread.h"
 #include "lock.h"
 
 /* Possible states of a thread: */
