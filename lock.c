@@ -7,7 +7,11 @@
 #include "mmu.h"
 #include "proc.h"
 #include "lock.h"
-#include "user.h"
+
+struct lock_t
+{
+    uint locked; // Is the lock held?
+};
 
 void initlock(struct lock_t *lk)
 {
