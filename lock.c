@@ -6,6 +6,7 @@
 #include "mmu.h"
 #include "proc.h"
 #include "lock.h"
+#include "user.h"
 
 void initlock(struct lock_t *lk)
 {
