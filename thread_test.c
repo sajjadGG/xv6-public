@@ -3,7 +3,6 @@
 #include "user.h"
 #include "fs.h"
 #include "fcntl.h"
-#include "lock.h"
 
 #define NUM_THREADS 4
 #define TARGET_COUNT_PER_THREAD 500

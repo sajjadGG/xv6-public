@@ -43,7 +43,7 @@ int atoi(const char *);
 //thread.c
 void thread_create(void *(*start_routine)(void *), void *arg);
 
-//lock.h
+//lock.c
 void initlock(struct lock_t *lk);
 void lock_acquire(struct lock_t *lk);
 void lock_release(struct lock_t *lk);
