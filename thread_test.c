@@ -91,7 +91,7 @@ int main(int argc, char **argv)
     for (i = 0; i < NUM_THREADS; i++)
     {
         void *joinstack;
-        join(&joinstack);
+        join();
         for (j = 0; j < NUM_THREADS; j++)
         {
             if (joinstack == stacks[i])
@@ -110,6 +110,6 @@ int main(int argc, char **argv)
     else
         printf(1, "TEST FAILED!\n");
 
-        // Exit
+    // Exit
     exit();
 }

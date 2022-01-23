@@ -29,7 +29,7 @@ void lock_acquire(struct lock_t *lk)
 }
 
 // Release the lock.
-void lock_release(struct spinlock *lk)
+void lock_release(struct lock_t *lk)
 {
 
     __sync_synchronize();
