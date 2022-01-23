@@ -375,7 +375,7 @@ int join(void)
   struct proc *p;
   int havekids, pid;
   struct proc *curproc = myproc();
-
+  printf("in join : %d", curproc->pid);
   acquire(&ptable.lock);
   for (;;)
   {
