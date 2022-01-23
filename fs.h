@@ -1,8 +1,8 @@
 // On-disk file system format.
 // Both the kernel and user programs use this header file.
 
-#define ROOTINO 1 // root i-number
-#define BSIZE 512 // block size
+#define ROOTINO 1  // root i-number
+#define BSIZE 2048 // block size
 
 // Disk layout:
 // [ boot block | super block | log | inode blocks |
@@ -21,7 +21,7 @@ struct superblock
   uint bmapstart;  // Block number of first free map block
 };
 
-#define NDIRECT 16
+#define NDIRECT 12
 #define NINDIRECT (BSIZE / sizeof(uint))
 #define MAXFILE (NDIRECT + NINDIRECT)
 
