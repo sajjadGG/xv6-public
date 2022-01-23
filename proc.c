@@ -227,21 +227,17 @@ int fork(void)
 }
 
 //IMPLEMENTED: clone syscall implementation
-
+// size is the amount filled in parent stack
 int clone(void *stack, int size)
 {
   int i, pid;
   struct proc *np; // for thread
   struct proc *curproc = myproc();
 
-  // Allocate process. ?
   if ((np = allocproc()) == 0)
-  {
     return -1;
-  }
 
   np->pgdir = curproc->pgdir; //asssign page dir instead of copying its content
-
   np->sz = curproc->sz;
   np->parent = curproc; //set parent?
   *np->tf = *curproc->tf;
@@ -249,13 +245,25 @@ int clone(void *stack, int size)
   // Clear %eax so that fork returns 0 in the child.
   np->tf->eax = 0;
 
-  //open files?
+  //open files
+  for (i = 0; i < NOFILE; i++)
+    if (curproc->ofile[i])
+      np->ofile[i] = filedup(curproc->ofile[i]);
 
   np->cwd = idup(curproc->cwd);
 
   safestrcpy(np->name, curproc->name, sizeof(curproc->name));
   //pid?
   pid = np->pid;
+
+  // calculate stack size
+
+  void *down_start = (void *)curproc->tf->ebp + 16; //why 16?
+  void *top_start = (void *)curproc->tf->esp;
+  uint stack_size = (uint)(down_start - top_start);
+  np->tf->esp = (uint)(stack - stack_size);
+  np->tf->ebp = (uint)(stack - 16);
+  memmove(stack - copysize, top_copy, copysize);
 
   acquire(&ptable.lock);
 
