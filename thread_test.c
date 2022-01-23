@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 
     for (i = 0; i < NUM_THREADS; i++)
     {
-        printf("before join %d", getpid());
+        printf(1, "before join %d\n", getpid());
         join();
     }
 
