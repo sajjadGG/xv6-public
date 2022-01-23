@@ -1,6 +1,6 @@
 #include "types.h"
 #include "stat.h"
-#include "user.h"
+#include "defs.h"
 #include "lock.h"
 
 /* Possible states of a thread: */
@@ -10,8 +10,6 @@
 
 #define STACK_SIZE 8192
 #define MAX_THREAD 4
-
-void thread_create(void *(*start_routine)(void *), void *arg);
 
 void thread_create(void (*start_routine)(void *), void *arg)
 {
