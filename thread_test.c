@@ -44,8 +44,6 @@ int main(int argc, char **argv)
 
     initlock(&lt);
 
-    printf(1, "main: initialized semaphore %d to %d\n", SEMAPHORE_NUM, sem_size);
-
     // Initialize counter
     g_counter = 0;
 
@@ -63,14 +61,14 @@ int main(int argc, char **argv)
         stacks[i] = (void *)malloc(4096);
         if (!stacks[i])
         {
-            printf(1, "main: could not get stack for thread %d, exiting...\n");
+            printf(1, "main: could not get stack for thread, exiting...\n");
             exit();
         }
 
         args[i] = (int *)malloc(4);
         if (!args[i])
         {
-            printf(1, "main: could not get memory (for arg) for thread %d, exiting...\n");
+            printf(1, "main: could not get memory (for arg) for thread , exiting...\n");
             exit();
         }
 
@@ -83,7 +81,7 @@ int main(int argc, char **argv)
     for (i = 0; i < NUM_THREADS; i++)
     {
         thread_create(thread, args[i]);
-        printf(1, "main: created thread with pid %d\n");
+        printf(1, "main: created thread with pid \n");
     }
 
     // Wait for all children
