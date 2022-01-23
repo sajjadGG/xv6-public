@@ -5,7 +5,7 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
-#include "spinlock.h"
+#include "lock.h"
 
 void initlock(struct lock_t *lk)
 {
