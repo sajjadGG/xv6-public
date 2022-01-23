@@ -37,8 +37,7 @@ void *thread(void *arg)
 
 int main(int argc, char **argv)
 {
-    int i, j;
-    int sem_size;
+    int i;
     int final_counter;
     int final_target = NUM_THREADS * TARGET_COUNT_PER_THREAD;
 
