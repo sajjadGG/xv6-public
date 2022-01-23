@@ -11,7 +11,7 @@
 
 uint g_counter;
 struct lock_t lt;
-void thread(void *arg)
+void *thread(void *arg)
 {
     int i;
     int counter;
@@ -82,7 +82,7 @@ int main(int argc, char **argv)
     // Start all children
     for (i = 0; i < NUM_THREADS; i++)
     {
-        thread_create(&thread, args[i]);
+        thread_create(thread, args[i]);
         printf(1, "main: created thread with pid %d\n", pid);
     }
 
