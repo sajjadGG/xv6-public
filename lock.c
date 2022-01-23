@@ -1,4 +1,5 @@
 #include "types.h"
+#include "user.h"
 #include "stat.h"
 #include "defs.h"
 #include "param.h"
@@ -6,7 +7,7 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
-#include "user.h"
+
 struct lock_t
 {
     uint locked; // Is the lock held?
