@@ -9,7 +9,7 @@
 #define SEMAPHORE_NUM 0
 
 uint g_counter;
-struct lock_t lt;
+struct lock_t *lt;
 void *thread(void *arg)
 {
     int i;
@@ -20,7 +20,7 @@ void *thread(void *arg)
 
     for (i = 0; i < TARGET_COUNT_PER_THREAD; i++)
     {
-        lock_acquire(&lt);
+        lock_acquire(lt);
 
         counter = g_counter;
         sleep(0);
@@ -28,7 +28,7 @@ void *thread(void *arg)
         sleep(0);
         g_counter = counter;
 
-        lock_release(&lt);
+        lock_release(lt);
     }
 
     exit();
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     int final_counter;
     int final_target = NUM_THREADS * TARGET_COUNT_PER_THREAD;
 
-    initlock(&lt);
+    initlock(lt);
 
     // Initialize counter
     g_counter = 0;
