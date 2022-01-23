@@ -19,7 +19,7 @@ void initLock(struct lock_t *lk)
 // other CPUs to waste time spinning to acquire it.
 void lockAcquire(struct lock_t *lk)
 {
-    pushcli(); // disable interrupts to avoid deadlock.
+    //pushcli(); // disable interrupts to avoid deadlock.
 
     // The xchg is atomic.
     while (xchg(&lk->locked, 1) != 0)
@@ -39,5 +39,5 @@ void lockRelease(struct lock_t *lk)
                  : "+m"(lk->locked)
                  :);
 
-    popcli();
+    //popcli();
 }
