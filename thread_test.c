@@ -49,7 +49,6 @@ int main(int argc, char **argv)
     // Set up thread stuff
 
     // Stacks
-    void *stacks[NUM_THREADS];
     // Args
     int *args[NUM_THREADS];
 
@@ -57,12 +56,6 @@ int main(int argc, char **argv)
     // Bail if something fails
     for (i = 0; i < NUM_THREADS; i++)
     {
-        stacks[i] = (void *)malloc(4096);
-        if (!stacks[i])
-        {
-            printf(1, "main: could not get stack for thread, exiting...\n");
-            exit();
-        }
 
         args[i] = (int *)malloc(4);
         if (!args[i])
@@ -87,6 +80,7 @@ int main(int argc, char **argv)
 
     for (i = 0; i < NUM_THREADS; i++)
     {
+        printf("before join %d", getpid());
         join();
     }
 
