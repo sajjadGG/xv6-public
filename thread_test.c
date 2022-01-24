@@ -81,7 +81,7 @@ int main(int argc, char **argv)
     for (i = 0; i < NUM_THREADS; i++)
     {
         printf(1, "before join %d\n", getpid());
-        join();
+        thread_join();
     }
 
     // Check the result

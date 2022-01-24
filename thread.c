@@ -21,3 +21,8 @@ void thread_create(void (*start_routine)(void *), void *arg)
         exit();
     }
 }
+
+void thread_join(void)
+{
+    join()
+}
