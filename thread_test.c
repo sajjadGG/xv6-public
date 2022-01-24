@@ -6,8 +6,8 @@
 #include "lock.h"
 #include "thread.h"
 
-#define NUM_THREADS 4
-#define TARGET_COUNT_PER_THREAD 500
+#define NUM_THREADS 5
+#define TARGET_COUNT_PER_THREAD 400
 
 uint g_counter;
 struct lock_t *lt;
@@ -46,21 +46,15 @@ int main(int argc, char **argv)
     // Initialize counter
     g_counter = 0;
 
-    // Set up thread stuff
-
-    // Stacks
-    // Args
     int *args[NUM_THREADS];
 
-    // Allocate stacks and args and make sure we have them all
-    // Bail if something fails
     for (i = 0; i < NUM_THREADS; i++)
     {
 
         args[i] = (int *)malloc(4);
         if (!args[i])
         {
-            printf(1, "main: could not get memory (for arg) for thread , exiting...\n");
+            printf(1, "main: no mem for args  , exiting...\n");
             exit();
         }
 
@@ -69,14 +63,14 @@ int main(int argc, char **argv)
 
     printf(1, "main: running with %d threads...\n", NUM_THREADS);
 
-    // Start all children
+    // Start all threads
     for (i = 0; i < NUM_THREADS; i++)
     {
         thread_create(thread, args[i]);
         printf(1, "main: created thread with pid \n");
     }
 
-    // Wait for all children
+    // Wait for all threads
 
     for (i = 0; i < NUM_THREADS; i++)
     {
