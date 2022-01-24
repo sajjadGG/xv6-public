@@ -24,5 +24,5 @@ void thread_create(void (*start_routine)(void *), void *arg)
 
 void thread_join(void)
 {
-    join()
+    join();
 }
