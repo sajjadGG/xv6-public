@@ -259,7 +259,7 @@ int clone(void *stack, int size)
   // calculate stack size
 
   //let calc from the end
-  stack_end = stack + size;
+  void *stack_end = stack + size;
   void *down_start = (void *)curproc->tf->ebp + 16; //why 16?
   void *top_start = (void *)curproc->tf->esp;
   uint stack_size = (uint)(down_start - top_start);
