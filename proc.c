@@ -241,19 +241,15 @@ int clone(void *stack, int size)
   np->sz = curproc->sz;
   np->parent = curproc; //set parent?
   *np->tf = *curproc->tf;
-
   // Clear %eax so that fork returns 0 in the child.
   np->tf->eax = 0;
-
   //open files
   for (i = 0; i < NOFILE; i++)
     if (curproc->ofile[i])
       np->ofile[i] = filedup(curproc->ofile[i]);
 
   np->cwd = idup(curproc->cwd);
-
   safestrcpy(np->name, curproc->name, sizeof(curproc->name));
-  //pid?
   pid = np->pid;
 
   // calculate stack size
@@ -377,7 +373,7 @@ int join(void)
   struct proc *p;
   int havekids, pid;
   struct proc *curproc = myproc();
-  cprintf("in join : %d\n", curproc->pid);
+
   acquire(&ptable.lock);
   for (;;)
   {
